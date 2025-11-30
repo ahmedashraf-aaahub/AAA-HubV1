@@ -1,0 +1,504 @@
+/* --- 1. إعادة ضبط التنسيق (Reset) وتضمين الخطوط --- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+:root {
+    --primary-color: #38761D; /* أخضر غامق */
+    --secondary-color: #F1C40F; /* ذهبي/أصفر */
+    --text-color: #333;
+    --light-bg: #F8F9FA;
+    --max-width: 1200px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    direction: rtl; 
+    text-align: right;
+    background-color: #fff;
+    /* تصحيح مشكلة الحركة الجانبية */
+    overflow-x: hidden; 
+}
+
+/* العناصر الأساسية والمساعدة */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* الأزرار */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(56, 118, 29, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #2a5a14; 
+    transform: translateY(-3px);
+}
+
+/* --- الشريط العلوي (Header) والتنقل --- */
+#header {
+    background-color: white;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    /* تصحيح المشكلة: ضمان الظهور فوراً */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; 
+    width: auto;
+    transition: height 0.3s;
+}
+
+#nav-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+#nav-menu ul li {
+    margin-left: 25px;
+}
+
+#nav-menu ul li a {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 10px 0;
+    display: block;
+}
+
+.nav-extra {
+    display: flex;
+    align-items: center;
+}
+
+.btn-contact {
+    margin-right: 20px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: #333 !important;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+}
+
+.btn-contact:hover {
+    background-color: #F4D03F;
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* --- قسم البطل (Hero Section) --- */
+.hero-section {
+    padding: 180px 0 100px;
+    background-color: var(--light-bg);
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    color: #000;
+    line-height: 1.3;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: left; 
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* --- أقسام المحتوى العامة --- */
+section {
+    padding: 100px 0;
+}
+
+/* --- قسم رؤية المؤسس --- */
+.vision-section {
+    background-color: white;
+}
+
+.vision-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.vision-text {
+    flex: 2;
+}
+.vision-text h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+.vision-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.vision-image {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+.vision-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.founder-name {
+    margin-top: 15px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* --- قسم المهارات (Skills) --- */
+.skills-section {
+    background-color: var(--light-bg);
+}
+
+.skills-intro {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.skills-intro img {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.skills-intro p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.skill-card i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-left: 10px;
+}
+
+.skill-card:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+.skill-card:hover i {
+    color: var(--secondary-color);
+}
+.skill-card.high-value {
+    background-color: var(--secondary-color);
+    color: #333;
+    border-color: var(--secondary-color);
+}
+.skill-card.high-value i {
+    color: var(--primary-color);
+}
+
+
+/* --- قسم الخدمات (Services) --- */
+.services-section {
+    background-color: white;
+}
+.services-intro-text {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: var(--light-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* لاقتصاص الصورة مع الحفاظ على الأبعاد */
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.service-card h3 {
+    color: var(--primary-color);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.service-card p {
+    padding: 0 20px 20px;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+
+/* --- قسم التواصل والاشتراك (CTA) --- */
+.cta-section {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+.cta-section h2 {
+    color: white;
+    font-size: 2.8rem;
+}
+.cta-section p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+}
+.cta-actions a {
+    background-color: var(--secondary-color);
+    color: #333 !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    font-size: 1.2rem;
+}
+.cta-actions a:hover {
+    background-color: #F4D03F;
+}
+
+/* --- التذييل (Footer) --- */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* --- زر WhatsApp العائم الثابت (حل مشكلة الظهور) --- */
+.whatsapp-float-fixed {
+    /* تصحيح المشكلة: ضمان الظهور فوراً وعدم الحاجة للتمرير */
+    position: fixed;
+    bottom: 20px;
+    left: 20px; 
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 60px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float-fixed:hover {
+    transform: scale(1.1);
+}
+
+
+/* --- التجاوبية (Media Queries) --- */
+
+/* الأجهزة اللوحية */
+@media (max-width: 992px) {
+    .hero-section .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        order: -1; 
+        margin-bottom: 30px;
+    }
+    
+    .vision-content {
+        flex-direction: column;
+    }
+    .vision-text {
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* الأجهزة المحمولة */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* إخفاء القائمة الأصلية */
+    #nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+    
+    /* إظهار القائمة عند الضغط */
+    #nav-menu.active {
+        display: block;
+    }
+
+    #nav-menu ul {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    #nav-menu ul li {
+        margin: 0;
+        border-bottom: 1px solid #eee;
+        width: 100%;
+    }
+    
+    #nav-menu ul li a {
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: block; /* إظهار زر الهامبرغر */
+    }
+
+    .btn-contact {
+        display: none;
+    }
+
+    .hero-section {
+        padding-top: 100px;
+    }
+    
+    .whatsapp-float-fixed {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+        line-height: 50px;
+    }
+
+    .cta-section h2 {
+        font-size: 1.8rem;
+    }
+}
